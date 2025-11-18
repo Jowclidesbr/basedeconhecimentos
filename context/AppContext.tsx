@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode, useCallback } from 'react';
-import { User, QuestionAnswer, Category, AppContextType, GoogleCredentialPayload } from '../types';
+import { User, QuestionAnswer, Category, AppContextType } from '../types';
 import { CATEGORIES, INITIAL_KNOWLEDGE_BASE } from '../constants';
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -8,22 +8,16 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     const [user, setUser] = useState<User | null>(null);
     const [knowledgeBase, setKnowledgeBase] = useState<QuestionAnswer[]>(INITIAL_KNOWLEDGE_BASE);
 
-    const login = (payload: GoogleCredentialPayload) => {
+    const login = (name: string) => {
         const newUser: User = {
-            id: payload.sub,
-            name: payload.name,
-            email: payload.email,
-            avatarUrl: payload.picture,
+            id: `user-${Date.now()}`,
+            name: name,
+            avatarUrl: `https://picsum.photos/seed/${encodeURIComponent(name)}/100/100`,
         };
         setUser(newUser);
     };
 
     const logout = () => {
-        // @ts-ignore
-        if (window.google) {
-            // @ts-ignore
-            window.google.accounts.id.disableAutoSelect();
-        }
         setUser(null);
     };
 

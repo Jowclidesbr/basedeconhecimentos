@@ -1,8 +1,7 @@
 export interface User {
-  id: string; // Google's 'sub'
+  id: string;
   name: string;
-  email: string;
-  avatarUrl: string; // Google's 'picture'
+  avatarUrl: string; // URL for the user's profile picture
 }
 
 export interface QuestionAnswer {
@@ -19,16 +18,9 @@ export interface Category {
   name: string;
 }
 
-export interface GoogleCredentialPayload {
-    sub: string;
-    name: string;
-    email: string;
-    picture: string;
-}
-
 export interface AppContextType {
   user: User | null;
-  login: (payload: GoogleCredentialPayload) => void;
+  login: (name: string) => void;
   logout: () => void;
   knowledgeBase: QuestionAnswer[];
   categories: Category[];

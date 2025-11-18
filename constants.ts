@@ -1,11 +1,8 @@
-
 import { Category, QuestionAnswer, User } from './types';
 
-// FIX: Add missing 'email' property to satisfy the User type.
 export const MOCK_USER: User = {
     id: 'user-1',
     name: 'Alex Johnson',
-    email: 'alex.j@example.com',
     avatarUrl: 'https://picsum.photos/seed/alex/100/100'
 };
 
@@ -25,8 +22,7 @@ export const INITIAL_KNOWLEDGE_BASE: QuestionAnswer[] = [
         question: 'How to handle state in large React applications?',
         answer: 'For large React applications, consider using state management libraries like Redux or Zustand. For simpler cases, React\'s built-in Context API combined with the useReducer hook can be a powerful solution. This helps in centralizing state and logic, making the application more maintainable and scalable.',
         category: CATEGORIES[0],
-        // FIX: Add missing 'email' property to satisfy the User type.
-        author: { id: 'user-2', name: 'Jane Doe', email: 'jane.d@example.com', avatarUrl: 'https://picsum.photos/seed/jane/100/100' },
+        author: { id: 'user-2', name: 'Jane Doe', avatarUrl: 'https://picsum.photos/seed/jane/100/100' },
         createdAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 2),
     },
     {
@@ -34,8 +30,7 @@ export const INITIAL_KNOWLEDGE_BASE: QuestionAnswer[] = [
         question: 'What are the benefits of using TypeScript with React?',
         answer: 'TypeScript brings static typing to JavaScript. When used with React, it helps in catching errors early during development, improves code readability and maintainability through explicit type definitions, and provides excellent autocompletion and refactoring support in modern IDEs. This leads to more robust and less error-prone applications.',
         category: CATEGORIES[1],
-        // FIX: Add missing 'email' property to satisfy the User type.
-        author: { id: 'user-3', name: 'Sam Wilson', email: 'sam.w@example.com', avatarUrl: 'https://picsum.photos/seed/sam/100/100' },
+        author: { id: 'user-3', name: 'Sam Wilson', avatarUrl: 'https://picsum.photos/seed/sam/100/100' },
         createdAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 5),
     },
     {
