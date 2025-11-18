@@ -1,0 +1,5 @@
+{
+  "name": "Team Knowledge Base AI",
+  "description": "A multi-user application for storing a technology team's knowledge base. It allows users to manage questions and answers categorized by themes, enhanced with AI capabilities for content generation and organization.",
+  "requestFramePermissions": []
+}
